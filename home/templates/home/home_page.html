@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+{% block title %}{{page.title}}{% endblock %}
+{% block content %}
+   
+    <div class="w-full">
+    {% for block in page.body %}
+        {% if block.block_type ==  "hero" %}
+                <div class="w-full relative h-[100vh]">
+                    {% for i in block.value %}
+                        {% if i.block_type == "image" %}
+                        <div class="absolute top-0 right-0 z-10 w-full h-full">
+                            {% image i.value width-1000 class="w-full h-full"  %}
+                            <!-- <img src="{{ hero_image.url }}" class="w-full h-full" alt=""> -->
+                        </div>
+                        {% endif %}
+                        {% if i.block_type == "text" %}
+                        <div class="absolute top-0 right-0 z-20 bg-blue-900 bg-opacity-40 w-full h-full text-center items-center flex">
+                            <span class="text-[3vw] text-white my-auto">{{ i.value }}</span>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                    
+                </div>
+        {% endif %}
+        {% if block.block_type == "about" %}
+        <div class="container">
+            <div class="grid grid-cols-12 py-8">
+                {% for i in block.value %}
+                    {% if i.block_type == "text" %}
+                    <div class="lg:col-span-7 col-span-12 ps-8">
+                        {{ i.value }}
+                    </div>
+                    {% endif %}
+                        {% if i.block_type == "image" %}
+                        <div class="lg:col-span-5 col-span-12">
+                            {% image i.value width-1000 class="w-full h-full"  %}
+                        </div>
+                        {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% if block.block_type == "highlight_text" %}
+            <div class="container">
+                <div class="w-full bg-gray-200 p-8 text-3xl">
+                    {{ block.value }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if block.block_type == "guid" %}
+            <div class="container flex flex-wrap justify-center">
+                {% for i in block.value %}
+                    {% if i.block_type == "text" %}
+                        <div class="w-full py-8">
+                            {{ i.value }}
+                        </div>
+                    {% endif %}
+                    {% if i.block_type == "steps" %}
+                    <div class="lg:w-60 w-full lg:mx-4 shadow-lg">
+                        {% for step in i.value %}
+                                {% if step.block_type == "step" %}
+                                <div class="w-full bg-blue-400 text-white font-bold text-2xl p-4 text-center">
+                                        {{ step.value }}
+                                </div>
+                                {% endif %}
+                                {% if step.block_type == "text" %}
+                                <div class="w-full p-4 text-xl font-bold text-center">
+                                        {{ step.value }}
+                                </div>
+                                {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% if block.block_type == "advantages" %}
+            <div class="container">
+                {% for i in block.value %}
+                    {% if i.block_type == "text" %}
+                        <div class="w-full text-center py-8">
+                            <span class="text-[3vw] text-gray-800    font-bold">
+                                {{ i.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if i.block_type == "bonus" %}
+                        <div class="w-full grid grid-cols-12 py-8">
+                            {% for bi in i.value %}
+                                {% if bi.block_type == "text" %}
+                                    <div class="col-span-12">
+                                        <p class="p-4">{{ bi.value }}</p>
+                                    </div>
+                                {% endif %}
+                                <!-- {% if bi.block_type == "image" %}
+                                    <div class="lg:col-span-6 col-span-6">
+                                        {% image bi.value width-1000 class="w-full h-full"  %}
+                                    </div>
+                                {% endif %} -->
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if block.block_type == "contact_us" %}
+            <div class="container">
+                <div class="w-[40vw] mx-auto bg-blue-900 p-12">
+                    {% for item in block.value %}
+                        {% if item.block_type == "heading" %}
+                            <span class="text-[4vw] text-white block mb-2">{{item.value}}</span>
+                        {% endif %}
+                        {% if item.block_type == "text" %}
+                            <span class="text-[1.9vw] text-white block mb-2">{{item.value}}</span>
+                        {% endif %}
+                    {% endfor %}
+                    <a href="/contact-us/" class="block w-full bg-white text-center text-[1.1vw] p-4 rounded-lg text-[2.1vw]">Contact us -></a>
+                </div>
+            </div>
+        {% endif %}
+        {% if block.block_type == "last_speech" %}
+            <div class="container p-4 py-8">
+                <p>{{block.value}}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% endblock content %}

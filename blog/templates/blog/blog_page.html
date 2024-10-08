@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+{% block title %}{{page.title}}{% endblock %}
+{% block content %}
+
+
+    <div class="container grid grid-cols-12">
+        
+            <div class="lg:col-span-8 md:col-span-6 col-span-12 pt-8 p-4">
+                {% for block in page.body  %}
+                    {% if block.block_type == "heading" %}
+                        <h1 class="text-[3vw] font-black mb-5">{{block.value}}</h1>
+                    {% endif %}
+                    {% if block.block_type == "paragraph" %}
+                        <p class="text-[1.1vw] mb-4">{{block.value}}</p>
+                    {% endif %}
+                    {% if block.block_type == "highlight_box" %}
+                        <div class="w-full p-6 bg-{{block.value.bg_color}}">
+                            <h1>{{ block.value.heading }}</h1>
+                            <h3>{{ block.value.subheading }}</h3>
+                            <p>{{ block.value.text }}</p>
+                            <a href="{{ block.value.button.link }}">{{ block.value.button.text }}</a>
+                        </div>
+                    {% endif %}
+                    {% if block.block_type == "button" %}
+                        <a href="{{ block.value.link }}" class="text-[1.1vw] bg-{{block.value.bg_color}} p-4 rounded-lg w-max block">{{ block.value.text }}</a>
+                    {% endif %}
+                {% endfor %}    
+            </div>
+            <div class="lg:col-span-4 md:col-span-6 col-span-12 pt-8 ps-4">
+                {% for block in page.body  %}
+                    {% if block.block_type == "form_aside" %}
+                        <div class="mb-4 bg-blue-800 p-8 text-white">
+                            {% for item in block.value  %}
+                                {% if item.block_type == "heading1" %}
+                                    <h1 class="font-bold text-[2.6vw]">{{ item.value }}</h1>
+                                {% endif %}
+                                {% if item.block_type == "heading2" %}
+                                    <h2 class="font-bold text-[1.9vw]">{{ item.value }}</h2>
+                                {% endif %}
+                                {% if item.block_type == "paragraph" %}
+                                    <p class="text-[1.1vw]">{{ item.value }}</p>
+                                {% endif %}
+                                {% if item.block_type == "button" %}
+                                    <a href="{{ item.value.link }}" class="text-[1.1vw] bg-{{item.value.bg_color}} block w-full mt-4 rounded-lg text-center p-3">{{ item.value.text }}</a>
+                                {% endif %}
+                                {% if item.block_type == "contact_form" %}
+                                    {% if item.value %}
+                                        <a href="/contact-us/" class="block w-full bg-white text-center text-[1.1vw] p-4 rounded-lg">Contact us -></a>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}    
+            </div>
+            
+
+    </div>
+
+{% endblock %}

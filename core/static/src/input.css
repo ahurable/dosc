@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.header {
+    @apply w-full
+}
+
+.header .top-wrapper {
+    @apply bg-gray-900 text-white font-bold text-lg flex justify-around p-4 w-full mx-auto text-center
+}
+
+.header .mid-wrapper {
+    @apply w-full flex justify-center py-8
+}
+
+.navigation {
+    @apply w-full bg-blue-950 text-white p-8 flex justify-around
+}
+
+
+a {
+    @apply  text-blue-500 
+}
+
+.right {
+    float: right;
+}
+
+.bg-green {
+    @apply bg-green-900 text-white
+}
+.bg-darkblue {
+    @apply bg-blue-700 text-white
+}
+.bg-white {
+    @apply bg-[#ffffff] text-black
+}
+.bg-gray {
+    @apply bg-[#d4d4d4] text-black
+}
+
+input, textarea {
+    @apply w-full border rounded-2xl p-4 text-[1.1vw]
+}
+
+p {
+    @apply my-3
+}
+
+table td {
+    @apply p-3 border-black
+}

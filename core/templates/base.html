@@ -1,0 +1,78 @@
+{% load compress %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}"/>
+    {% endcompress %}
+</head>
+<body>
+    <header class="header">
+        <div class="top-wrapper">
+            {% with company_number=settings.base.SiteSettings.company_number motivate_text=settings.base.SiteSettings.motivate_text motivate_url=settings.base.SiteSettings.motivate_url %}
+                {% if company_number %}
+                    <span class="block text-[1.3vw]">Contact us: {{ company_number }}</span>
+                {% endif %}
+                {% if motivate_text %}
+                    <span class="block text-[1.3vw]">{{ motivate_text }}</span>
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <div class="mid-wrapper">
+            {% with company_name=settings.base.SiteSettings.company_name company_claims=settings.base.SiteSettings.company_claims %}
+                <div class="w-max mx-auto text-center">
+                    {% if company_name %}
+                    <h1 class="text-[3.5vw] text-blue-950 font-black">{{company_name}}</h1>
+                    {% endif %}
+                    {% if company_claims %}
+                        <span class="text-[2vw]">{{company_claims}}</span>
+                    {% endif %}
+                </div>
+            {% endwith %}
+        </div>
+
+        <div class="navigation">
+            <div class="lg:w-[140vh] w-full flex justify-around">
+                {% with header_menu=settings.base.SiteSettings.header_menu %}
+                    {% for i in header_menu.all %}
+                        <a class="block w-max text-[1.7vw] text-white font-bold" href="{{i.url}}">{{i.title}}</a>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+        </div>
+
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer class="w-full bg-blue-950 text-white">
+        <div class="navigation">
+            <div class="lg:w-[140vh] w-full flex justify-around py-4">
+                {% with footer_menu=settings.base.SiteSettings.header_menu %}
+                    {% for i in footer_menu.all %}
+                        <a class="block w-max text-[1.7vw] text-white font-bold" href="{{i.url}}">{{i.title}}</a>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+        </div>
+        <div class="w-full text-center py-12">
+            {% with footer=settings.base.SiteSettings.footer %}
+                <div class="container text-center">
+                    {% for i in footer.all %}
+                        <span class="text-[2.3vw] text-white">{{ i.heading }}</span>
+                        <br>
+                        <span class=" text-[1.7vw] text-white">{{i.text}}</span>
+                    {% endfor %}
+                </div>
+                {% endwith %}
+        </div>
+    </footer>
+</body>
+</html>

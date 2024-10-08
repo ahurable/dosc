@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+{% comment %} 
+    <div class="container text-center pb-8">
+        <div class="w-[80vh] mx-auto my-6">
+            
+        </div>
+    </div>
+    {% endcomment %}
+
+<div class="container grid grid-cols-12">
+        
+            <div class="lg:col-span-8 md:col-span-6 col-span-12 pt-8 p-4">
+                {% for block in page.body  %}
+                    {% if block.block_type == "heading" %}
+                        <h1 class="text-[3vw] font-black mb-5">{{block.value}}</h1>
+                    {% endif %}
+                    {% if block.block_type == "paragraph" %}
+                        <p class="text-[1.1vw] mb-4">{{block.value}}</p>
+                    {% endif %}
+                    {% if block.block_type == "highlight_box" %}
+                        <div class="w-full p-6 bg-{{block.value.bg_color}}">
+                            <h1>{{ block.value.heading }}</h1>
+                            <h3>{{ block.value.subheading }}</h3>
+                            <p>{{ block.value.text }}</p>
+                            <a href="{{ block.value.button.link }}">{{ block.value.button.text }}</a>
+                        </div>
+                    {% endif %}
+                    {% if block.block_type == "button" %}
+                        <a href="{{ block.value.link }}" class="text-[1.1vw] bg-{{block.value.bg_color}} p-4 rounded-lg w-max block">{{ block.value.text }}</a>
+                    {% endif %}
+                {% endfor %}    
+            </div>
+            <div class="lg:col-span-4 md:col-span-6 col-span-12 pt-8 ps-4">
+                <div class="mb-4 bg-blue-800 p-8 text-white">
+                    <div>
+                        <h1 class="text-[3vw] font-black">{{ page.title }}</h1>
+                        <p class="text-[1.1vw]">
+                            {{ self.intro|richtext }}
+                        </p>
+                    </div>
+                    <form action="{% pageurl page %}" method="POST">
+                        {% csrf_token %}
+                        {% for fm in form %}
+                        <div class="my-4">
+                            <p class="my-2">{{ fm.label }}</p>
+                            <div>
+                                {{fm}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <button type="submit" class="w-full bg-blue-500 text-white font-bold text-[2vw] p-4 rounded-xl mt-4">
+                            Submit Form
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+
+    </div>
+
+{% endblock %} 
