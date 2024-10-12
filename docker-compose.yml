@@ -18,16 +18,5 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
 
-  nginx:
-    image: "jc21/nginx-proxy-manager:latest"
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-      - "81:81"
-
-    volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
 volumes:
   postgres_data:
