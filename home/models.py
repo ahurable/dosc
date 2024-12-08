@@ -11,7 +11,8 @@ class HomePage(Page):
         (
             "hero", 
             blocks.StreamBlock([
-                ("text", blocks.RichTextBlock(required=True, help_text="Enter Description for your hero section")),
+                ("heading", blocks.RichTextBlock(required=True, help_text="Enter heading size text for your hero section")),
+                ("text", blocks.RichTextBlock(required=True, help_text="Enter text for your hero section")),
                 ("image", ImageChooserBlock(required=True, help_text="Choose a image related to your bussiness"))
             ])
         ),

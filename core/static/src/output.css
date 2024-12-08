@@ -572,15 +572,15 @@ video {
   }
 }
 
-@media (min-width: 151.618398637138vh) {
-  .container {
-    max-width: 151.618398637138vh;
-  }
-}
-
 @media (min-width: 187.39352640545144vh) {
   .container {
     max-width: 187.39352640545144vh;
+  }
+}
+
+@media (min-width: 1080px) {
+  .container {
+    max-width: 1080px;
   }
 }
 
@@ -642,6 +642,10 @@ video {
 
 .z-20 {
   z-index: 20;
+}
+
+.z-30 {
+  z-index: 30;
 }
 
 .col-span-12 {
@@ -726,12 +730,21 @@ video {
   display: none;
 }
 
-.h-\[100vh\] {
-  height: 100vh;
+.h-\[460px\] {
+  height: 460px;
 }
 
 .h-full {
   height: 100%;
+}
+
+.h-max {
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.w-\[390px\] {
+  width: 390px;
 }
 
 .w-\[40vw\] {
@@ -769,10 +782,6 @@ video {
 
 .content-start {
   align-content: flex-start;
-}
-
-.items-center {
-  align-items: center;
 }
 
 .justify-center {
@@ -834,6 +843,11 @@ video {
   --tw-bg-opacity: 0.4;
 }
 
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .p-12 {
   padding: 3rem;
 }
@@ -867,6 +881,16 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.py-32 {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .pb-8 {
@@ -923,8 +947,16 @@ video {
   font-size: 2.2vw;
 }
 
+.text-\[2\.3vw\] {
+  font-size: 2.3vw;
+}
+
 .text-\[2\.6vw\] {
   font-size: 2.6vw;
+}
+
+.text-\[22px\] {
+  font-size: 22px;
 }
 
 .text-\[2vw\] {
@@ -948,8 +980,12 @@ video {
   line-height: 1.75rem;
 }
 
-.text-\[2\.3vw\] {
-  font-size: 2.3vw;
+.text-\[34px\] {
+  font-size: 34px;
+}
+
+.text-\[45px\] {
+  font-size: 45px;
 }
 
 .font-black {
@@ -1089,6 +1125,18 @@ table td {
   .md\:col-span-6 {
     grid-column: span 6 / span 6;
   }
+
+  .md\:w-1\/3 {
+    width: 33.333333%;
+  }
+
+  .md\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .md\:w-\[550px\] {
+    width: 550px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1096,16 +1144,8 @@ table td {
     grid-column: span 4 / span 4;
   }
 
-  .lg\:col-span-5 {
-    grid-column: span 5 / span 5;
-  }
-
   .lg\:col-span-6 {
     grid-column: span 6 / span 6;
-  }
-
-  .lg\:col-span-7 {
-    grid-column: span 7 / span 7;
   }
 
   .lg\:col-span-8 {
@@ -1117,11 +1157,41 @@ table td {
     margin-right: 1rem;
   }
 
+  .lg\:flex {
+    display: flex;
+  }
+
   .lg\:w-60 {
     width: 15rem;
   }
 
   .lg\:w-\[140vh\] {
     width: 140vh;
+  }
+
+  .lg\:w-\[480px\] {
+    width: 480px;
+  }
+
+  .lg\:w-\[720px\] {
+    width: 720px;
+  }
+
+  .lg\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .lg\:pb-44 {
+    padding-bottom: 11rem;
+  }
+
+  .lg\:pt-32 {
+    padding-top: 8rem;
   }
 }
