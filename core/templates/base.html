@@ -1,4 +1,6 @@
 {% load compress %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +26,15 @@
         </div>
 
         <div class="mid-wrapper">
-            {% with company_name=settings.base.SiteSettings.company_name company_claims=settings.base.SiteSettings.company_claims %}
+            {% with company_logo=settings.base.SiteSettings.company_logo company_name=settings.base.SiteSettings.company_name company_claims=settings.base.SiteSettings.company_claims %}
                 <div class="w-max mx-auto text-center">
+                    {% if company_logo %}
+                    {% comment %} company_logo {% endcomment %}
+                    <div class="w-[200px] h-[140px] mx-auto">
+                        {% comment %} {% image company_logo.url width-1000 class="w-full h-full"  %} {% endcomment %}
+                         <img src="{{ company_logo.url }}" class="w-full h-full object-contain" alt=""> 
+                    </div>
+                    {% endif %}
                     {% if company_name %}
                     <h1 class="text-[3.5vw] text-blue-950 font-black">{{company_name}}</h1>
                     {% endif %}
@@ -57,18 +66,18 @@
             <div class="lg:w-[140vh] w-full flex justify-around py-4">
                 {% with footer_menu=settings.base.SiteSettings.header_menu %}
                     {% for i in footer_menu.all %}
-                        <a class="block w-max text-[1.7vw] text-white font-bold" href="{{i.url}}">{{i.title}}</a>
+                        <a class="block w-max text-[1.3rem] text-white font-bold" href="{{i.url}}">{{i.title}}</a>
                     {% endfor %}
                 {% endwith %}
             </div>
         </div>
-        <div class="w-full text-center py-12">
+        <div class="w-full text-center pt-2 pb-12">
             {% with footer=settings.base.SiteSettings.footer %}
                 <div class="container text-center">
                     {% for i in footer.all %}
-                        <span class="text-[2.3vw] text-white">{{ i.heading }}</span>
+                        <span class="text-[18px] text-white">{{ i.heading }}</span>
                         <br>
-                        <span class=" text-[1.7vw] text-white">{{i.text}}</span>
+                        <span class=" text-[16px] text-white">{{i.text}}</span>
                     {% endfor %}
                 </div>
                 {% endwith %}

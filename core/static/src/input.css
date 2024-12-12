@@ -19,6 +19,16 @@
     @apply w-full bg-blue-950 text-white p-8 flex justify-around
 }
 
+table {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+}
 
 a {
     @apply  text-blue-500 
@@ -28,7 +38,7 @@ a {
     float: right;
 }
 
-.bg-green {
+.bg-greeno {
     @apply bg-green-900 text-white
 }
 .bg-darkblue {

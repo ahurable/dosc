@@ -730,6 +730,10 @@ video {
   display: none;
 }
 
+.h-\[140px\] {
+  height: 140px;
+}
+
 .h-\[460px\] {
   height: 460px;
 }
@@ -741,6 +745,10 @@ video {
 .h-max {
   height: -moz-max-content;
   height: max-content;
+}
+
+.w-\[200px\] {
+  width: 200px;
 }
 
 .w-\[390px\] {
@@ -868,9 +876,14 @@ video {
   padding: 2rem;
 }
 
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-32 {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .py-4 {
@@ -883,14 +896,8 @@ video {
   padding-bottom: 2rem;
 }
 
-.py-32 {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.pb-12 {
+  padding-bottom: 3rem;
 }
 
 .pb-8 {
@@ -901,8 +908,8 @@ video {
   padding-inline-start: 1rem;
 }
 
-.ps-8 {
-  padding-inline-start: 2rem;
+.pt-2 {
+  padding-top: 0.5rem;
 }
 
 .pt-8 {
@@ -927,8 +934,16 @@ video {
   font-size: 1.1vw;
 }
 
+.text-\[1\.3rem\] {
+  font-size: 1.3rem;
+}
+
 .text-\[1\.3vw\] {
   font-size: 1.3vw;
+}
+
+.text-\[1\.7rem\] {
+  font-size: 1.7rem;
 }
 
 .text-\[1\.7vw\] {
@@ -939,16 +954,16 @@ video {
   font-size: 1.9vw;
 }
 
-.text-\[2\.1vw\] {
-  font-size: 2.1vw;
+.text-\[16px\] {
+  font-size: 16px;
+}
+
+.text-\[18px\] {
+  font-size: 18px;
 }
 
 .text-\[2\.2vw\] {
   font-size: 2.2vw;
-}
-
-.text-\[2\.3vw\] {
-  font-size: 2.3vw;
 }
 
 .text-\[2\.6vw\] {
@@ -959,6 +974,10 @@ video {
   font-size: 22px;
 }
 
+.text-\[2rem\] {
+  font-size: 2rem;
+}
+
 .text-\[2vw\] {
   font-size: 2vw;
 }
@@ -967,8 +986,20 @@ video {
   font-size: 3.5vw;
 }
 
+.text-\[34px\] {
+  font-size: 34px;
+}
+
+.text-\[3rem\] {
+  font-size: 3rem;
+}
+
 .text-\[3vw\] {
   font-size: 3vw;
+}
+
+.text-\[45px\] {
+  font-size: 45px;
 }
 
 .text-\[4vw\] {
@@ -978,14 +1009,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-\[34px\] {
-  font-size: 34px;
-}
-
-.text-\[45px\] {
-  font-size: 45px;
 }
 
 .font-black {
@@ -1065,6 +1088,17 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+}
+
 a {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
@@ -1074,7 +1108,7 @@ a {
   float: right;
 }
 
-.bg-green {
+.bg-greeno {
   --tw-bg-opacity: 1;
   background-color: rgb(20 83 45 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;

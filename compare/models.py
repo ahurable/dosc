@@ -7,6 +7,20 @@ from core.blocks import ButtonBlock, HighlightBoxBlock
 from wagtail.contrib.table_block.blocks import TableBlock
 # Create your models here.
 
+default_table_options = {
+    'minSpareRows': 0,
+    'startRows': 6,
+    'startCols': 3,
+    'colHeaders': False,
+    'rowHeaders': False,
+    'contextMenu': True,
+    'editor': 'text',
+    'stretchH': 'all',
+    'height': 108,
+    'languege': 'en',
+    'renderer': 'text',
+    'autoColumnSize': False,
+}
 
 class ComparePage(Page):
 
@@ -14,7 +28,7 @@ class ComparePage(Page):
         ('heading', blocks.RichTextBlock(classname="full title")),
         ('subheading', blocks.RichTextBlock(classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
-        ('table', TableBlock()),
+        ('table', TableBlock(table_options=default_table_options)),
         ('highlight_box', HighlightBoxBlock()),
         ('button', ButtonBlock())
     ], null=True, blank=True)

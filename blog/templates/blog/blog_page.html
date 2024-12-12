@@ -11,7 +11,7 @@
             <div class="lg:col-span-8 md:col-span-6 col-span-12 pt-8 p-4">
                 {% for block in page.body  %}
                     {% if block.block_type == "heading" %}
-                        <h1 class="text-[3vw] font-black mb-5">{{block.value}}</h1>
+                        <h1 class="text-[3rem] font-black mb-5">{{block.value}}</h1>
                     {% endif %}
                     {% if block.block_type == "paragraph" %}
                         <p class="text-[1.1vw] mb-4">{{block.value}}</p>

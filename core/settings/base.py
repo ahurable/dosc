@@ -104,6 +104,7 @@ DATABASES = {
         'HOST': 'db',  # Assuming the database service is named "db" in docker-compose
         'PORT': '5432',
     }
+    # Developement database in case docker not working
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME':'sqlite'

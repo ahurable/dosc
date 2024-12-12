@@ -8,10 +8,10 @@
         {% for block in page.body %}
 
             {% if block.block_type == "heading" %}
-                <h1 class="text-[3vw] font-black">{{ block.value }}</h1>
+                <h1 class="text-[3rem] text-center font-black">{{ block.value }}</h1>
             {% endif %}
             {% if block.block_type == "subheading" %}
-                <h2 class="text-[2.1vw] font-bold text-gray-800">{{ block.value }}</h2>
+                <h2 class="text-[2rem] font-bold text-gray-800">{{ block.value }}</h2>
             {% endif %}
             {% if block.block_type == "paragraph" %}
                 <p class="text-[1.1vw]">
@@ -23,10 +23,10 @@
             {% endif %}
             {% if block.block_type == "highlight_box" %}
             <div class="w-full p-6 bg-{{block.value.bg_color}}">
-                <h1>{{ block.value.heading }}</h1>
-                <h3>{{ block.value.subheading }}</h3>
+                <h1 class="text-[3rem]">{{ block.value.heading }}</h1>
+                <h3 class="text-[1.7rem]">{{ block.value.subheading }}</h3>
                 <p>{{ block.value.text }}</p>
-                <a href="{{ block.value.button.link }}">{{ block.value.button.text }}</a>
+                <a href="{{ block.value.button.link }}" class="bg-greeno">{{ block.value.button.text }}</a>
             </div>
         {% endif %}
         {% if block.block_type == "button" %}

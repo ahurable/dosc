@@ -53,7 +53,7 @@ class SiteSettings(BaseGenericSetting, ClusterableModel):
     company_number = models.CharField( help_text="Enter your company phone number", default="09123456789", max_length=15)
     motivate_text = models.CharField( help_text="Something to make user motivated like : Get A Cash Offer Today", default="09123456789", max_length=250)
     motivate_url = models.CharField( help_text="When user cliked on motivate text, where shall he go? enter the url.", default="Enter motivation url", max_length=100)
-   
+    company_logo = models.ImageField(help_text="Enter your company image picture", blank=True, null=True)
     company_name = models.CharField( help_text="Enter name of your company (it'll displayed below the logo)", default="09123456789", max_length=200)
     company_claims = models.CharField( help_text="Enter your company claims", default="09123456789", max_length=300)
 
@@ -69,6 +69,7 @@ class SiteSettings(BaseGenericSetting, ClusterableModel):
         MultiFieldPanel(
             [
                 FieldPanel("company_name"),
+                FieldPanel("company_logo"),
                 FieldPanel("company_claims")
             ],
             "Present your company"
